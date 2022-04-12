@@ -404,6 +404,28 @@ function changeNodeStyles() {
     }
 }
 
+function changeNewNodeStyles(target) {
+  /*
+    console.log(target.children);
+    const collection = target.lastElementChild.children; //target.lastElementChild.children;
+    console.log(collection);
+    for (var i = 0; i < collection.length; i++) {
+        console.log(collection[i]);
+        var last = collection[i].lastElementChild;
+        console.log("last");
+        console.log(lastChild);
+        for (var j = 0; j < last; j++) {
+            last[j].style.width = "100%";
+            last[j].style.display = "grid";
+            last[j].style.justifyItems = "center";
+        }
+        // collection[i].style.width = "100%";
+        // //collection[i].style.border = "thin solid red";
+        // collection[i].style.display = "grid";
+        // collection[i].style.justifyItems = "center";
+    }*/
+}
+
 dropdownInd = dropdownSelect.selectedIndex = 0;
 createNodes();
 changeNodeStyles();
@@ -467,6 +489,7 @@ function addNewElementProper(incomingJSON , target) {
     }
 
     let newContentFamilyList = document.createElement("UL");
+    newContentFamilyList.listStyleType = "None";
     newContentElement.appendChild(newContentFamilyList);
     if (incomingJSON['Friends'].length > 0) {
       let newContentFriends = document.createElement("p");
@@ -499,7 +522,7 @@ dropdownSelect.addEventListener("change", function() {
         jsonObject.sort(GetSortOrderAscending("Name"));
 
         while (contentGallery.firstChild) {
-          console.log("removing children");
+          //console.log("removing children");
           contentGallery.removeChild(contentGallery.lastChild);
         }
         noExpanded = true;
@@ -518,7 +541,7 @@ dropdownSelect.addEventListener("change", function() {
         //     collection[i].style.justifyItems = "center";
         // }
         while (contentGallery.firstChild) {
-          console.log("removing children");
+          //console.log("removing children");
           contentGallery.removeChild(contentGallery.lastChild);
         }
         noExpanded = true;
@@ -549,7 +572,7 @@ dropdownSelect.addEventListener("change", function() {
 });
 
 function findInJSON(value, key, JSON) {
-    for (var i = 0; JSON.length; i++) {
+    for (var i = 0; i < JSON.length; i++) {
         if (value == JSON[i][key]) {
             return i;
         }
@@ -579,8 +602,10 @@ contentGallery.addEventListener("click", function(e) {
           map.style.gridRow = "span 2";
           map.style.p = "larger";
           addNewElementProper(jsonObject[ind], map);
+          //collection[ind].style.width = "80%";
           changeNodeStyles();
           map.style.paddingBottom = "5vmin";
+          changeNewNodeStyles(contentGallery)
           noExpanded = false;
       }
     }
