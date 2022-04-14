@@ -68,6 +68,7 @@ body {
     grid-template-rows: auto;
     grid-column-gap: 1vmin;
     grid-row-gap: 1vmin;
+    grid-auto-flow: dense;
     justify-items: center;
     /*background-color: rgba(37, 25, 4, 0.39);*/
     padding: 2vmin;

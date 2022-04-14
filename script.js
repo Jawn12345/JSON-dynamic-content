@@ -489,7 +489,6 @@ function addNewElementProper(incomingJSON , target) {
     }
 
     let newContentFamilyList = document.createElement("UL");
-    newContentFamilyList.listStyleType = "None";
     newContentElement.appendChild(newContentFamilyList);
     if (incomingJSON['Friends'].length > 0) {
       let newContentFriends = document.createElement("p");
@@ -600,7 +599,7 @@ contentGallery.addEventListener("click", function(e) {
         if (noExpanded) {
           map.style.gridColumn = "span 2";
           map.style.gridRow = "span 2";
-          map.style.p = "larger";
+          //map.style.p = "larger";
           addNewElementProper(jsonObject[ind], map);
           //collection[ind].style.width = "80%";
           changeNodeStyles();
